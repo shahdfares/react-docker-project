@@ -9,6 +9,8 @@ jobs:
   runs-on: ubuntu-latest
   steps:
    - uses: actions/checkout@v2
-   - run: docker login -u ${{ secrets.DOCKER_USERNAME}} -p ${{secrets.DOCKER_PASSWORD}}
+   - run: docker login -u ${{ secrets.DOCKER_USERNAME}} -p ${{ secrets.DOCKER_PASSWORD}}
    - run: docker build shahd/reactproject -f Dockerfile.dev .
    - run: docker run -e CI=true  shahd/reactproject npm run test
+
+# I added the secrets at GitHub
